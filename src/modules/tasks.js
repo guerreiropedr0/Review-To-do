@@ -37,7 +37,9 @@ export function saveTasks(TASK_LIST) {
 }
 
 export function addTask(task, TASK_LIST) {
-  TASK_LIST = JSON.parse(localStorage.getItem('savedTasks'));
+  TASK_LIST = JSON.parse(localStorage.getItem('savedTasks'))
+    ? JSON.parse(localStorage.getItem('savedTasks'))
+    : [];
   task.index = TASK_LIST.length + 1;
   TASK_LIST.push(task);
   saveTasks(TASK_LIST);
